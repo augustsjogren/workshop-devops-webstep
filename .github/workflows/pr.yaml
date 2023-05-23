@@ -23,5 +23,16 @@ jobs:
   E2ETests:
     runs-on: ubuntu-22.04
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install deps
+        run: npm install
+
       - name: Run e2e tests
         run: npm run e2e:run
